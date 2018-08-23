@@ -11,6 +11,9 @@
     name: 'app',
     components: {
       TabBar
+    },
+    mounted () {
+
     }
   }
 
