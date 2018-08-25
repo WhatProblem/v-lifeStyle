@@ -16,10 +16,32 @@ const appRoutes = [
     meta: {
       title: '首页',
       icon: 'el-icon-ws-shouye',
-      homeObj: '测试'
+      homeObj: '首页'
     },
     // component: () => import('@/views/home/home.vue')
     component: home
+  },
+  {
+    path: '/home/homeDetail',
+    name: 'homeDetail',
+    meta: {
+      title: '首页详情',
+      icon: 'el-icon-ws-shouye',
+      homeObj: '首页详情'
+    },
+    component: () => import('@/views/home/homeDetail.vue'),
+    children: [
+      {
+        path: ':id',
+        name: 'homeDetailId',
+        meta: { 
+          title: 'homeDetail',
+          icon: 'el-icon-ws-shouye',
+          homeObj: '详情'
+        },
+        component: () => import('@/views/home/homeDetail.vue')
+      }
+    ]
   },
   {
     path: '/film',
