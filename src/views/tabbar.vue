@@ -58,7 +58,8 @@ export default {
 <style lang="less">
 .tabbar {
   width: 100%;
-  height: 100%;
+  position: fixed;
+  bottom: 0;
   .weui-tabbar {
     background: #363636;
   }

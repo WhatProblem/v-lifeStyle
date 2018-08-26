@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <div class="main">
+      <router-view></router-view>
+    </div>
     <tab-bar></tab-bar>
   </div>
 </template>
@@ -12,7 +14,7 @@
     components: {
       TabBar
     },
-    mounted () {
+    mounted() {
 
     }
   }
@@ -24,5 +26,8 @@
   @import '~vux/src/styles/reset.less';
   body {
     background-color: #fbf9fe;
+    .main {
+      margin-bottom: 54px;
+    }
   }
 </style>
