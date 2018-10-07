@@ -30,94 +30,104 @@
   </div>
 </template>
 <script>
-  import { Flexbox, FlexboxItem, Divider, Grid, GridItem, Card } from 'vux';
-  export default {
-    name: 'homePopFilm',
-    components: {
-      Grid,
-      GridItem,
-      Card,
-      Flexbox,
-      FlexboxItem,
-      Divider
+import { Flexbox, FlexboxItem, Divider, Grid, GridItem, Card } from "vux";
+export default {
+  name: "homePopFilm",
+  components: {
+    Grid,
+    GridItem,
+    Card,
+    Flexbox,
+    FlexboxItem,
+    Divider
+  },
+  data() {
+    return {};
+  },
+  mounted() {
+    this.testRequest();
+  },
+  methods: {
+    onItemClick() {
+      console.log("on item click");
     },
-    data() {
-      return {
-
-      }
+    refreshList() {
+      console.log("换一批");
     },
-    methods: {
-      onItemClick() {
-        console.log('on item click')
-      },
-      refreshList() {
-        console.log('换一批');
-      }
+    testRequest() {
+      this.$wsHttp
+        .get("home/homePopFilm", { film_score: 1 })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log("错误：" + err);
+        });
     }
   }
-
+};
 </script>
 <style lang="less" scoped>
-  .popFilm {
-    width: 100%;
-    margin-top: 10px;
-    .weui-grid {
-      padding: 0;
-    }
-    .grid-center {
-      display: block;
-      text-align: center;
-      color: #666;
-    }
-    .weui-grids {
-      background-color: transparent;
-      /*background-color: #696969;*/
-    }
-    .card-demo-flex {
-      display: flex;
-    }
-    .card-demo-content01 {
-      padding: 10px 0;
-    }
-    .card-padding {
-      padding: 15px;
-    }
-    .card-demo-flex>div {
-      flex: 1;
-      text-align: center;
-      font-size: 12px;
-    }
-    .card-demo-flex span {
-      color: #f74c31;
-    }
-    .flex-demo {
-      /*text-align: center;*/
-      color: #ffd04b;
-      /*background-color: #20b907;*/
-      border-radius: 4px;
-      background-clip: padding-box;
-    }
-    .filmDetail {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-    .vux-divider {
-      color: #ffd04b;
-    }
-    .weui-panel {
-      background-color: transparent;
-      color: #ffd04b;
-    }
-    .weui-panel:before,
-    .weui-panel:after {
-      border: none;
-    }
-    .weui-grid:after {
-      border: none;
-    }
-    .weui-grid:active {
-      background-color: transparent;
-    }
+.popFilm {
+  width: 100%;
+  margin-top: 10px;
+  .weui-grid {
+    padding: 0;
   }
+  .grid-center {
+    display: block;
+    text-align: center;
+    color: #666;
+  }
+  .weui-grids {
+    background-color: transparent;
+    /*background-color: #696969;*/
+  }
+  .card-demo-flex {
+    display: flex;
+  }
+  .card-demo-content01 {
+    padding: 10px 0;
+  }
+  .card-padding {
+    padding: 15px;
+  }
+  .card-demo-flex > div {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+  }
+  .card-demo-flex span {
+    color: #f74c31;
+  }
+  .flex-demo {
+    /*text-align: center;*/
+    color: #ffd04b;
+    /*background-color: #20b907;*/
+    border-radius: 4px;
+    background-clip: padding-box;
+  }
+  .filmDetail {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .vux-divider {
+    color: #ffd04b;
+  }
+  .weui-panel {
+    background-color: transparent;
+    color: #ffd04b;
+  }
+  .weui-panel:before,
+  .weui-panel:after {
+    border: none;
+  }
+  .weui-grid:after {
+    border: none;
+  }
+  .weui-grid:active {
+    background-color: transparent;
+  }
+}
 </style>
